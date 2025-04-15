@@ -1,6 +1,6 @@
 package com.caiorosadev.os.server.database.storage.impl;
 
-import com.caiorosadev.os.server.database.entities.Record;
+import com.caiorosadev.os.shared.model.Record;
 import com.caiorosadev.os.server.database.storage.IDatabaseStorage;
 import com.caiorosadev.os.server.database.mapper.impl.RecordMapper;
 import com.google.gson.*;
@@ -107,5 +107,18 @@ public class JsonFileDatabaseStorage implements IDatabaseStorage {
     @Override
     public synchronized List<Record> list() {
         return readRecords();
+    }
+
+    @Override
+    public synchronized boolean delete(int id) {
+        List<Record> records = readRecords();
+        boolean removed = records.removeIf(record -> record.getId() == id);
+        
+        if (removed) {
+            writeRecords(records);
+            return true;
+        }
+        
+        return false;
     }
 }

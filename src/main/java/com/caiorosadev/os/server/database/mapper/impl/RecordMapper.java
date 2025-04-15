@@ -1,6 +1,6 @@
 package com.caiorosadev.os.server.database.mapper.impl;
 
-import com.caiorosadev.os.server.database.entities.Record;
+import com.caiorosadev.os.shared.model.Record;
 import com.caiorosadev.os.server.database.mapper.IMapper;
 import com.google.gson.JsonObject;
 
