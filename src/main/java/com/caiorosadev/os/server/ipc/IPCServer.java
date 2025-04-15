@@ -134,7 +134,6 @@ public class IPCServer implements Closeable {
             responsePipe.write(data);
             
             System.out.println("Resposta enviada: " + response.getStatus());
-            
         } catch (IOException e) {
             System.err.println("Erro ao enviar resposta pelo pipe: " + e.getMessage());
             e.printStackTrace();
